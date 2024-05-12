@@ -11,8 +11,8 @@ class ExchangeRatesController extends Controller
         $amount       = 10000;
         $baseCurrency = 'TWD';
         $outputCurrencyAry = ['USD', 'AUD', 'EUR', 'SGD', 'HKD'];
-        $startDate    = '2022-08-20';
-        $endDate      = '2022-08-23';
+        $startDate    = '2023-02-22';
+        $endDate      = '2023-03-01';
         $convertedAmount = Currency::convert()->from($baseCurrency)->to($outputCurrencyAry[0])->amount($amount)->round(2)->get();
         echo '新台幣金額 $' . $amount . ' ' . '匯率換算成美金 $' . $convertedAmount . PHP_EOL;
         $timeSeriesCurrencyAry = Currency::rates()->timeSeries($startDate, $endDate)->symbols($outputCurrencyAry)->base($baseCurrency)->amount($amount)->round(2)->get();
